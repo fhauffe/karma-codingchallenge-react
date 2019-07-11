@@ -7,12 +7,25 @@ import Header from "./components/header/Header"
 import Attributes from './components/attributes/Attributes';
 
 class App extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            homeLink: 'Home' 
+        }
+    }
+
+    onChangeLinkName(newName) {
+        this.setState( {
+            homeLink: newName
+        })
+    }
+
     render() {
         return(
             <Container maxWidth="lg">
-                <Header />
+                <Header homeLink={this.state.homeLink} />
                 <Attributes initialAttributePoints="24"/>
-          </Container>
+            </Container>
         );
     }
 }
